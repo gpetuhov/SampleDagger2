@@ -9,11 +9,15 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
+// As usual, we should have our Application class,
+// but here it must also implement HasSupportFragmentInjector interface.
 class App : Application(), HasSupportFragmentInjector {
 
     @Inject
     lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
+    // Component is created as usual, but here it is not returned by static method.
+    // Instead, everything is injected by AndroidSupportInjection class (see its usage in MainFragment).
     private val appComponent: AppComponent by lazy {
         DaggerAppComponent.builder()
                 .application(this)

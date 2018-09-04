@@ -10,12 +10,16 @@ import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_main.*
 import javax.inject.Inject
 
-
+// This is where the injection is used
 class MainFragment : Fragment() {
 
+    // We specify text provider as an abstract interface.
+    // Concrete implemenation is injected by Dagger
     @Inject lateinit var textProvider: TextProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // This is where all injections are executed.
+        // Here we use AndroidSupportInjection instead of App.getAppComponent().inject(this)
         AndroidSupportInjection.inject(this)
         super.onCreate(savedInstanceState)
     }

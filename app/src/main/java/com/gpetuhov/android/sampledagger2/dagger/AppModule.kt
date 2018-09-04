@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+// Provides concrete implementation of the TextProvider interface.
 @Module
 class AppModule {
 

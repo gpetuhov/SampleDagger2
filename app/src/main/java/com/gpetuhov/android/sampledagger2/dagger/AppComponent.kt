@@ -7,6 +7,8 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
+// In this example Dagger component must have 2 extra modules:
+// AndroidInjectionModule and AndroidBuilder.
 @Singleton
 @Component(modules = [
     AndroidInjectionModule::class,
